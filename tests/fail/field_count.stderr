@@ -1,0 +1,13 @@
+error: proc-macro derive panicked
+ --> tests/fail/field_count.rs:3:10
+  |
+3 | #[derive(Influx3Lp)]
+  |          ^^^^^^^^^
+  |
+  = help: message: SensorData should have at least one field
+
+error[E0601]: `main` function not found in crate `$CRATE`
+ --> tests/fail/field_count.rs:6:2
+  |
+6 | }
+  |  ^ consider adding a `main` function to `$DIR/tests/fail/field_count.rs`

@@ -1,0 +1,19 @@
+[workspace]
+members = [".", "macros"]
+
+[package]
+description = "A serializer for Rust structs according to InfluxDB 3 line protocol"
+name = "influx3_lp"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+readme = "README.md"
+keywords = ["influx", "serialization"]
+repository = "https://github.com/yijiecc/influx3_lp"
+homepage = "https://github.com/yijiecc/influx3_lp"
+
+[dependencies]
+macros = { path = "macros" }
+
+[dev-dependencies]
+trybuild = "1.0.111"
