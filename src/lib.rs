@@ -1,6 +1,6 @@
 //! A serializer for Rust structs according to [InfluxDB 3 line protocol](https://docs.influxdata.com/influxdb3/core/reference/line-protocol/).
 //!
-//! When writing data to InfluxDB 3 Core, we have to [write_lp API](https://docs.influxdata.com/influxdb3/core/write-data/http-api/v3-write-lp/) which differs from JSON.
+//! When writing data to InfluxDB 3 Core, we have to use [write_lp API](https://docs.influxdata.com/influxdb3/core/write-data/http-api/v3-write-lp/) whose format differs from JSON.
 //! This crate defines a derive macro called `Influx3Lp` to assit write process.
 //! 
 //! ```rust
