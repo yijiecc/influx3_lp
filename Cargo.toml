@@ -4,7 +4,7 @@ members = [".", "influx3_lp_macros"]
 [package]
 description = "A serializer for Rust structs according to InfluxDB 3 line protocol"
 name = "influx3_lp"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "MIT"
 readme = "README.md"
