@@ -1,33 +1,34 @@
+//! Macros for serializing a struct to line protocol string.
+//!
+//! There is only one derive macro: 
+//! * `#[derive(Influx3Lp)]`
+//! 
+//! There are three kind of attribute-like macros defined: 
+//! * `#[influx3_lp(table_name = "home")]` which must be applied to struct level
+//! * `#[influx3_lp(timestamp)]` which must be applied to field level
+//! * `#[influx3_lp(tag)]` which must be applied to field level
+//!
+//! Combined together, we can write:
+//!
+//! ```rust
+//! #[derive(Influx3Lp)]
+//! #[influx3_lp(table_name = "home")]
+//! struct SensorData {
+//!     pub temp: f32,
+//!     pub hum: Option<f64>,
+//!     #[influx3_lp(tag)]
+//!     pub room: String,
+//!     #[influx3_lp(timestamp)]
+//!     pub timestamp: Option<i64>,
+//! }
+//! ```
+//!
+//! Escape is applied according to [line protocol](https://docs.influxdata.com/influxdb3/core/reference/line-protocol/#special-characters).
+
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, DeriveInput};
 
-/// Macros for serializing a struct to line protocol string.
-///
-/// There is only one derive macro: 
-/// * `#[derive(Influx3Lp)]`
-/// 
-/// There are three kind of attribute-like macros defined: 
-/// * `#[influx3_lp(table_name = "home")]` which must be applied to struct level
-/// * `#[influx3_lp(timestamp)]` which must be applied to field level
-/// * `#[influx3_lp(tag)]` which must be applied to field level
-///
-/// Combined together, we can write:
-///
-/// ```rust
-/// #[derive(Influx3Lp)]
-/// #[influx3_lp(table_name = "home")]
-/// struct SensorData {
-///     pub temp: f32,
-///     pub hum: Option<f64>,
-///     #[influx3_lp(tag)]
-///     pub room: String,
-///     #[influx3_lp(timestamp)]
-///     pub timestamp: Option<i64>,
-/// }
-/// ```
-///
-/// Escape is applied according to [line protocol](https://docs.influxdata.com/influxdb3/core/reference/line-protocol/#special-characters).
 #[proc_macro_derive(Influx3Lp, attributes(influx3_lp))]
 pub fn influx3_lp_macro_derive(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);

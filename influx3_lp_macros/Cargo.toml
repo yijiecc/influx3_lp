@@ -1,0 +1,17 @@
+[lib]
+proc-macro = true
+
+[package]
+name = "influx3_lp_macros"
+version = "0.1.0"
+edition = "2024"
+description = "Macros for influx3_lp"
+license = "MIT"
+keywords = ["influx", "serialization"]
+repository = "https://github.com/yijiecc/influx3_lp"
+homepage = "https://github.com/yijiecc/influx3_lp"
+
+
+[dependencies]
+quote = "1.0.40"
+syn = "2.0.106"

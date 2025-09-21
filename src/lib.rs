@@ -48,7 +48,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-pub use macros::*;
+pub use influx3_lp_macros::*;
 
 /// This is the trait that `Influx3Lp` macro help us implementing.
 pub trait Influx3Lp {
